@@ -10,17 +10,17 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import WelcomeScreen from './src/containers/WelcomeScreen/WelcomeScreen'
 import MainScreen from './src/containers/MainScreen/MainScreen'
-// import GameOverScreen from './src/containers/GameOverScreen/GameOverScreen'
+import GameOverScreen from './src/containers/GameOverScreen/GameOverScreen'
 import {createStackNavigator} from 'react-navigation'
 
 const RootStack = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     Main: MainScreen,
-    // GameOver: GameOverScreen
+    GameOver: GameOverScreen
   },
   {
-    initialRouteName : 'Main'
+    initialRouteName : 'GameOver'
   }
 )
 export default class App extends Component {

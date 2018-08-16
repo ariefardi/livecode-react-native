@@ -34,36 +34,95 @@ class MainScreen extends Component {
         dice: 0,
         playerOnePosition: 1,
         playerTwoPosition: 1,
+        notification: 'Please roll the dice',
+        buttonRollDisabled: false,
     }
     handlerButtonDice () {
         console.log('button1')
         let rolledDice = Math.floor(Math.random() * 6)+1
         console.log(rolledDice, ' rolledDice')
         if (this.state.turn===0) {
-            // this.setState({
-            //     turn: 1
-            // })
             let position = this.state.playerOnePosition+rolledDice
-            this.setState({
-                ...this.state,
-                ['icon'+this.state.playerOnePosition]: 'circle' ,
-                playerOnePosition: position,
-                turn: 1,
-                ['icon'+position]: 'android'
-            })
+            if (position===25) {
+                alert('Player 1 Win the game')
+                let notif = 'player 1 rolled '+rolledDice
+                    this.setState({
+                        ...this.state,
+                        ['icon'+this.state.playerOnePosition]: 'circle' ,
+                        playerOnePosition: position,
+                        turn: 1,
+                        ['icon'+position]: 'android',
+                        notification: notif
+                    })
+                    this.props.navigation.navigate('GameOver')
+            }
+            else {
+                if (position>25) {
+                    position= position - 25
+                    let notif = 'Terlewat! Mundur '+position+' kotak'
+                    position= 25 - position
+                    this.setState({
+                        ['icon'+this.state.playerOnePosition]: 'circle' ,
+                        playerOnePosition: position,
+                        turn: 1,
+                        ['icon'+position]: 'android',
+                        notification: notif
+                    })
+                }
+                else {
+                    let notif = 'player 1 rolled '+rolledDice
+                    this.setState({
+                        ...this.state,
+                        ['icon'+this.state.playerOnePosition]: 'circle' ,
+                        playerOnePosition: position,
+                        turn: 1,
+                        ['icon'+position]: 'android',
+                        notification: notif
+                    })
+                } 
+            }
         }
+
         else if (this.state.turn===1) {
-            // this.setState({
-            //     turn: 0
-            // })
             let position = this.state.playerTwoPosition+rolledDice
-            this.setState({
-                ...this.state,
-                ['icon'+this.state.playerTwoPosition]: 'circle' ,
-                playerTwoPosition: position,
-                turn: 0,
-                ['icon'+position]: 'apple',
-            })
+            if (position===25) {
+                alert('Player 2 Win the game')
+                let notif = 'player 2 rolled '+rolledDice
+                    this.setState({
+                        ...this.state,
+                        ['icon'+this.state.playerTwoPosition]: 'circle' ,
+                        playerTwoPosition: position,
+                        turn: 1,
+                        ['icon'+position]: 'apple',
+                        notification: notif
+                    })
+                    this.props.navigation.navigate('GameOver')
+            }
+            else {
+                if (position>25) {
+                    position= position - 25
+                    let notif = 'Terlewat! Mundur '+position+' kotak'
+                    position= 25 - position
+                    this.setState({
+                        ['icon'+this.state.playerTwoPosition]: 'circle' ,
+                        playerTwoPosition: position,
+                        turn: 0,
+                        ['icon'+position]: 'apple',
+                        notification: notif
+                    })
+                }
+                else {
+                    let notif = 'player 2 rolled '+rolledDice
+                    this.setState({
+                        ...this.state,
+                        ['icon'+this.state.playerTwoPosition]: 'circle' ,
+                        playerTwoPosition: position,
+                        turn: 0,
+                        ['icon'+position]: 'apple',
+                        notification: notif
+                    })
+                } 
+            }
         }
         console.log(this.state.playerOnePosition, ' player one position')
         console.log(this.state.playerTwoPosition, ' player 2 position ')
@@ -246,6 +305,9 @@ class MainScreen extends Component {
 
 
                 <Button onPress={ ()=> this.handlerButtonDice()} title={'Roll Dice!'} />
+                <View style={styles.container}> 
+                <Text style={styles.textNotif} > {this.state.notification} </Text>
+                </View>
             </View>
         );
     }
@@ -283,6 +345,10 @@ const styles = StyleSheet.create({
         marginBottom: 'auto',
         marginLeft: 'auto',
         marginRight: 'auto',
+    },
+    textNotif: {
+        fontSize: 32,
+        fontWeight: 'bold'
     }
 });
 
