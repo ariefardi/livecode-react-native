@@ -7,16 +7,29 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+// import WelcomeScreen from './src/containers/WelcomeScreen/WelcomeScreen'
+// import MainScreen from './src/containers/MainScreen/MainScreen'
+// import GameOverScreen from './src/containers/GameOverScreen/GameOverScreen'
+// import {createStackNavigator} from 'react-navigation'
 
+// const RootStack = createStackNavigator(
+//   {
+//     Welcome: WelcomeScreen,
+//     Main: MainScreen,
+//     GameOver: GameOverScreen
+//   },
+//   {
+//     initialRouteName : 'Welcome'
+//   }
+// )
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}></Text>
-        <Text style={styles.instructions}>Hello WOlrd</Text>
+      // <RootStack/>
+      <View> 
+        <Text> Test </Text>
+        <Text> Test </Text>
       </View>
     );
   }
