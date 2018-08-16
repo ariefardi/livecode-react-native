@@ -20,7 +20,7 @@ const RootStack = createStackNavigator(
     GameOver: GameOverScreen
   },
   {
-    initialRouteName : 'Main'
+    initialRouteName : 'Welcome'
   }
 )
 export default class App extends Component {

@@ -136,14 +136,14 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} color={'white'} name={this.state.icon25} style={styles.icon} />
-                        <Text style={styles.text} > 25 </Text>
+                        <Icon size={50} color={'white'} name={this.state.icon21} style={styles.icon} />
+                        <Text style={styles.text} > 21 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} color={'white'} name={this.state.icon24} style={styles.icon} />
-                        <Text style={styles.text} > 24 </Text>
+                        <Icon size={50} color={'white'} name={this.state.icon22} style={styles.icon} />
+                        <Text style={styles.text} > 22 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
@@ -154,14 +154,14 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >   
-                        <Icon size={50} color={'white'} name={this.state.icon22} style={styles.icon} />
-                        <Text style={styles.text} > 22 </Text>
+                        <Icon size={50} color={'white'} name={this.state.icon24} style={styles.icon} />
+                        <Text style={styles.text} > 24 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} color={'white'} name={this.state.icon21} style={styles.icon} />
-                        <Text style={styles.text} > 21 </Text>
+                        <Icon size={50} color={'white'} name={this.state.icon25} style={styles.icon} />
+                        <Text style={styles.text} > 25 </Text>
                     </TouchableOpacity>
                 </View>
 
