@@ -32,8 +32,8 @@ class MainScreen extends Component {
         icon25: 'flag-checkered',
         turn: 0,
         dice: 0,
-        playerOnePosition: 1,
-        playerTwoPosition: 1,
+        playerOnePosition: 0,
+        playerTwoPosition: 0,
         notification: 'Please roll the dice',
         buttonRollDisabled: false,
     }
@@ -302,6 +302,23 @@ class MainScreen extends Component {
                         <Text style={styles.text} > 5 </Text>
                     </TouchableOpacity>
                 </View>
+                <View style={styles.buttonContainer} > 
+                    <TouchableOpacity
+                    style={styles.buttomMain} 
+                    >
+                        <Icon size={50} color={'white'} name={'android'} style={styles.iconPlayer} />
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity
+                    style={styles.buttomMain} 
+                    >
+                        <Icon size={50} color={'white'} name={'apple'} style={styles.iconPlayer} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.buttonContainer}>
+                <Text style={styles.player} >  One </Text>
+                <Text style={styles.player}>  Two </Text>
+                </View>
 
 
                 <Button onPress={ ()=> this.handlerButtonDice()} title={'Roll Dice!'} />
@@ -348,7 +365,20 @@ const styles = StyleSheet.create({
     },
     textNotif: {
         fontSize: 32,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        justifyContent: 'center'
+    },
+    iconPlayer: {
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        backgroundColor: '#418ff4'
+    },
+    player: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: 'white'
     }
 });
 
