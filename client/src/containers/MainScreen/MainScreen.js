@@ -5,36 +5,69 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 // create a component
 class MainScreen extends Component {
     state = {
-        icon1: 'android',
-        icon2: 'apple',
-        icon3: '',
-        icon4: '',
-        icon5: '',
-        icon6: '',
-        icon7: '',
-        icon8: '',
-        icon9: '',
-        icon10: '',
-        icon11: '',
-        icon12: '',
-        icon13: '',
-        icon14: '',
-        icon15: '',
-        icon16: '',
-        icon17: '',
-        icon18: '',
-        icon19: '',
-        icon20: '',
-        icon21: '',
-        icon22: '',
-        icon23: '',
-        icon24: '',
-        icon25: '',
+        icon1: 'circle',
+        icon2: 'circle',
+        icon3: 'circle',
+        icon4: 'circle',
+        icon5: 'circle',
+        icon6: 'circle',
+        icon7: 'circle',
+        icon8: 'circle',
+        icon9: 'circle',
+        icon10: 'circle',
+        icon11: 'circle',
+        icon12: 'circle',
+        icon13: 'circle',
+        icon14: 'circle',
+        icon15: 'circle',
+        icon16: 'circle',
+        icon17: 'circle',
+        icon18: 'circle',
+        icon19: 'circle',
+        icon20: 'circle',
+        icon21: 'circle',
+        icon22: 'circle',
+        icon23: 'circle',
+        icon24: 'circle',
+        icon25: 'flag-checkered',
         turn: 0,
         dice: 0,
+        playerOnePosition: 1,
+        playerTwoPosition: 1,
     }
     handlerButtonDice () {
         console.log('button1')
+        let rolledDice = Math.floor(Math.random() * 6)+1
+        console.log(rolledDice, ' rolledDice')
+        if (this.state.turn===0) {
+            // this.setState({
+            //     turn: 1
+            // })
+            let position = this.state.playerOnePosition+rolledDice
+            this.setState({
+                ...this.state,
+                ['icon'+this.state.playerOnePosition]: 'circle' ,
+                playerOnePosition: position,
+                turn: 1,
+                ['icon'+position]: 'android'
+            })
+        }
+        else if (this.state.turn===1) {
+            // this.setState({
+            //     turn: 0
+            // })
+            let position = this.state.playerTwoPosition+rolledDice
+            this.setState({
+                ...this.state,
+                ['icon'+this.state.playerTwoPosition]: 'circle' ,
+                playerTwoPosition: position,
+                turn: 0,
+                ['icon'+position]: 'apple',
+            })
+        }
+        console.log(this.state.playerOnePosition, ' player one position')
+        console.log(this.state.playerTwoPosition, ' player 2 position ')
+        console.log('Player',this.state.turn++,'turn')
     }
     render() {
         return (
@@ -44,31 +77,31 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon25} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon25} style={styles.icon} />
                         <Text style={styles.text} > 25 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon24} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon24} style={styles.icon} />
                         <Text style={styles.text} > 24 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon23} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon23} style={styles.icon} />
                         <Text style={styles.text} > 23 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >   
-                        <Icon size={50} name={this.state.icon22} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon22} style={styles.icon} />
                         <Text style={styles.text} > 22 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.ico215} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon21} style={styles.icon} />
                         <Text style={styles.text} > 21 </Text>
                     </TouchableOpacity>
                 </View>
@@ -79,31 +112,31 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon20} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon20} style={styles.icon} />
                         <Text style={styles.text} > 20 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon19} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon19} style={styles.icon} />
                         <Text style={styles.text} > 19 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon18} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon18} style={styles.icon} />
                         <Text style={styles.text} > 18 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon17} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon17} style={styles.icon} />
                         <Text style={styles.text} > 17 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon16} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon16} style={styles.icon} />
                         <Text style={styles.text} > 16</Text>
                     </TouchableOpacity>
                 </View>
@@ -114,31 +147,31 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon11} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon11} style={styles.icon} />
                         <Text style={styles.text} > 11 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon12} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon12} style={styles.icon} />
                         <Text style={styles.text} > 12 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon13} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon13} style={styles.icon} />
                         <Text style={styles.text} > 13 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon5} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon14} style={styles.icon} />
                         <Text style={styles.text} > 14 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon15} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon15} style={styles.icon} />
                         <Text style={styles.text} > 15 </Text>
                     </TouchableOpacity>
                 </View>
@@ -148,31 +181,31 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon10} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon10} style={styles.icon} />
                         <Text style={styles.text} > 10 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon9} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon9} style={styles.icon} />
                         <Text style={styles.text} > 9 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon8} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon8} style={styles.icon} />
                         <Text style={styles.text} > 8 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon7} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon7} style={styles.icon} />
                         <Text style={styles.text} > 7 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon6} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon6} style={styles.icon} />
                         <Text style={styles.text} > 6 </Text>
                     </TouchableOpacity>
                 </View>
@@ -182,37 +215,37 @@ class MainScreen extends Component {
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon1} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon1} style={styles.icon} />
                         <Text style={styles.text} > 1 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon2} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon2} style={styles.icon} />
                         <Text style={styles.text} > 2 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon3} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon3} style={styles.icon} />
                         <Text style={styles.text} > 3 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon4} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon4} style={styles.icon} />
                         <Text style={styles.text} > 4 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                     style={styles.buttomMain} 
                     >
-                        <Icon size={50} name={this.state.icon5} style={styles.icon} />
+                        <Icon size={50} color={'white'} name={this.state.icon5} style={styles.icon} />
                         <Text style={styles.text} > 5 </Text>
                     </TouchableOpacity>
                 </View>
 
 
-                <Button onPress={this.handlerButtonDice} title={'Roll Dice!'} />
+                <Button onPress={ ()=> this.handlerButtonDice()} title={'Roll Dice!'} />
             </View>
         );
     }
@@ -224,7 +257,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: '#42ebf4',
     },
     buttonContainer: {
         flexDirection: 1,
@@ -234,15 +267,16 @@ const styles = StyleSheet.create({
     buttomMain: {
         width: 50,
         height: 50,
-        backgroundColor: 'white',
-        margin: 5
+        margin: 5,
+        backgroundColor: '#418ff4'
     },
     icon: {
         marginTop: 'auto',
         marginBottom: 'auto',
-        marginLeft: 5,
+        marginLeft: 3,
         marginRight: 'auto',
-        position: 'absolute'
+        position: 'absolute',
+        backgroundColor: '#418ff4'
     },
     text: {
         marginTop: 'auto',
