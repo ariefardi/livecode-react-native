@@ -7,11 +7,12 @@ class GameOverScreen extends Component {
     goToHomeScreen () {
         console.log('Back To Welcome SCreen')
         alert('Back To Home')
+        this.props.navigation.navigate('Welcome')
     }
     render() {
         return (
             <View style={styles.container}>
-                <Text>GameOverScreen</Text>
+                <Text style={styles.TextGame} > Game Over </Text>
                 <View style={styles.buttonContainer} >
                 <Button onPress={()=> this.goToHomeScreen() } title={'Play Again?'} />
                 </View>
@@ -30,6 +31,10 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginTop: 20
+    },
+    TextGame: {
+        fontSize: 32,
+        fontWeight: 'bold'
     }
 });
 
